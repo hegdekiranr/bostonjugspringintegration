@@ -14,7 +14,7 @@ public class FileHandler {
 	
 	public File process(File file) throws Exception{	
 		
-		logger.info("Processing File: " + file);
+		logger.info("Found File: " + file);
 		return file;
 	}
 }

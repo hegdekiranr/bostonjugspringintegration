@@ -42,16 +42,11 @@ public class BostonjugspringintApplication {
 		//helloWorldOnChannels(context);
 		//messageBuilder(context);
 		
-		String s ="aaabbbcc";
-		char[] a = s.toCharArray();
-		for (char a1:a){
-			System.out.println(a1);
-		}
-		/*try {
+		try {
 			fileTransformers(context);
 		} catch (Exception e) {
-			e.printStackTrace();
-		}*/
+			logger.error(e);
+		}
 	}
 
 	/**
@@ -88,8 +83,9 @@ public class BostonjugspringintApplication {
 		logger.info("Populated directory with files");
 		PollableChannel filesOutChannel = context.getBean("filesOutChannel", PollableChannel.class);
 		for (int i = 0; i < fileCount; i++) {
-			logger.info("Finished processing " + filesOutChannel.receive(10000).getPayload());
+ 			logger.info("Found files in directory ======> " + filesOutChannel.receive(10000).getPayload());
 		}
+		logger.info("=======================================Stopping Content===============================================");
 		context.stop();
 	}
 	

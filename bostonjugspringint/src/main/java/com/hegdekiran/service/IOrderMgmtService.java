@@ -7,10 +7,6 @@ import org.springframework.integration.annotation.Gateway;
 
 import com.hegdekiran.beans.Order;
 
-/**
- * @author Kiran Hegde
- * 
- */
 public interface IOrderMgmtService {
 
 	// Create Synchronous Orders

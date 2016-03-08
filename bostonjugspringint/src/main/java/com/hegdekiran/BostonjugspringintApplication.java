@@ -1,8 +1,10 @@
 package com.hegdekiran;
 
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 
 import org.apache.log4j.Logger;
@@ -82,8 +84,13 @@ public class BostonjugspringintApplication {
 		}
 		logger.info("Populated directory with files");
 		PollableChannel filesOutChannel = context.getBean("filesOutChannel", PollableChannel.class);
+		String fileName = "";
+		File readFile;
 		for (int i = 0; i < fileCount; i++) {
- 			logger.info("Found files in directory ======> " + filesOutChannel.receive(10000).getPayload());
+			readFile = (File) filesOutChannel.receive(10000).getPayload();
+ 			logger.info("Files in directory =====> "+readFile );
+ 			BufferedReader read = new BufferedReader(new FileReader(readFile));
+ 			logger.info("Reading File Contexts ============>"+read.readLine());
 		}
 		logger.info("=======================================Stopping Content===============================================");
 		context.stop();

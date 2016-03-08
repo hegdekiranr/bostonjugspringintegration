@@ -4,10 +4,6 @@ import java.io.File;
 
 import org.apache.log4j.Logger;
 
-/**
- * @author Kiran Hegde
- * 
- */
 public class FileHandler {
 	
 	private Logger logger = Logger.getLogger(FileHandler.class);
